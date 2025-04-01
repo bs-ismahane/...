@@ -30,12 +30,14 @@ registerForm?.addEventListener("submit", function (e) {
         e.preventDefault();
     }
 });
+
+// Function to get Ngrok URL from the backend
 async function getNgrokUrl() {
     try {
         const response = await fetch('http://localhost:5000/api/ngrok-url');
         const data = await response.json();
         if (data.url) {
-            return data.url;
+            return data.url; // Return the Ngrok URL
         } else {
             console.error('No URL found in response');
             return null;
